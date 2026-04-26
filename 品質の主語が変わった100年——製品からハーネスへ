@@ -1,0 +1,486 @@
+# 品質の主語が変わった100年——製品からハーネスへ
+
+> 出典付き論考：品質管理100年の思想的系譜
+
+---
+
+## プロローグ：品質とは何か——5つの定義と1つの不変の問い
+
+**品質という言葉は100年で6回、その「主語」を変えた。** 製品から、プロセスへ。プロセスから、顧客体験へ。顧客体験から、システム全体へ。システム全体から、フィードバックループへ。そして今、AIと人間の協働設計へ——。本論考はこの100年の知的系譜を追い、不変の原理を抽出することを目指す。
+
+品質の定義は一意ではない。**Walter A. Shewhart**は1931年の『Economic Control of Quality of Manufactured Product』（D. Van Nostrand）で、品質を「経済的限界の中でのばらつきの管理」と定義した。**Joseph M. Juran**は『Quality Control Handbook』（McGraw-Hill, 1951）で「**fitness for use**（用途への適合性）」と述べ、製品仕様ではなく顧客の使用文脈を主語に据えた。**Philip B. Crosby**は『Quality Is Free』（McGraw-Hill, 1979）で「**conformance to requirements**（要件への適合）」と定義し、ゼロディフェクトを掲げた。**田口玄一**は品質を「出荷後に社会が被る損失」と再定義し、損失関数によって設計段階での頑健性（robustness）に光を当てた。**狩野紀昭ほか**（1984）は『品質』Vol.14 No.2に「**魅力的品質と当り前品質**」を発表し、品質を一次元のスカラーから**二次元の関数**へと革命的に拡張した。
+
+これらの個別の定義の上に、ISO/IEC 25010:2011（2023改訂で**安全性（Safety）**を加え9特性化）が国際標準としての品質特性モデルを与え、**Frederick P. Brooks**は「No Silver Bullet: Essence and Accidents of Software Engineering」（IEEE Computer Vol.20 No.4, 1987年4月, pp.10–19）で**本質的複雑性（essential complexity）**と**偶有的複雑性（accidental complexity）**を区別した。Brooksの預言——"There is no single development … which by itself promises even one order of magnitude [tenfold] improvement within a decade"（10年以内に一桁の生産性向上をもたらす単一の銀の弾丸は存在しない）——は、AI時代の今日においてこそ、より一層の重みをもって響く。
+
+**本論考のテーゼは単純である。100年の品質の歴史は、定義の変遷ではなく、「主語」の移動の歴史である**。何の品質を問うかが、製品 → プロセス → 顧客体験 → システム → フィードバックループ → ハーネスへと移ってきた。各時代は前時代を否定しないが、問いの中心を更新する。そして驚くべきことに、ある一群の原理——事前の作り込み、システムとしての捉え方、フィードバックループの速度——は、100年を貫いて不変であり続けてきた。
+
+▶ **次の問い：**「品質を統計的にコントロールする」という発想は、どこから生まれ、どう普及したのか。
+
+---
+
+## 第1章：ばらつきとの戦い——統計的品質管理の誕生（1924–1960）
+
+**この時代の品質の主語：「製品」のばらつきをいかに制御するか**
+
+物語は**1924年5月16日**、シカゴ郊外のWestern Electric社Hawthorne工場で書かれた1ページの社内メモから始まる。**Walter A. Shewhart**は上司George D. Edwards宛に、後に世界が**管理図（control chart）**と呼ぶことになる図表をスケッチしたのである。Edwardsは後に回想する——"Dr. Shewhart prepared a little memorandum only about a page in length. About a third of that page was given over to a simple diagram which we would all recognize today as a schematic control chart."（シューハート博士は1ページにも満たない短いメモを用意し、その三分の一は今日われわれが管理図と認める単純な図表に費やされていた）。
+
+この発想を体系化したのが、Shewhart『**Economic Control of Quality of Manufactured Product**』（D. Van Nostrand, 1931, 全501頁）である。Shewhartの根本洞察は、ばらつきには「偶然原因（chance cause）」と「異常原因（assignable cause）」があり、後者を統計的に検出して経済的限界の内に収めるべきだ、という点にあった。Shewhartはまた**PDSAサイクル（Plan-Do-Study-Act）**の原型を提示し、これは弟子の**W. Edwards Deming**に継承された。
+
+Demingは1950年に来日し、**日本科学技術連盟（JUSE）**の招きで経営者・技術者に統計的品質管理を講義する。1951年には**デミング賞**が創設され、Demingは後に1986年（MIT Center for Advanced Engineering Study, 1986年版）の『**Out of the Crisis**』で14のポイントと致命的7つの病を体系化する。Demingの根本主張は単純かつ過激だった——「**品質問題の94%は経営の責任であり、労働者の責任ではない**」。彼は晩年、**SoPK（System of Profound Knowledge）**として、システム理解・ばらつきの理論・知識の理論・心理学を統合した。Demingは「PDCAは私の発明ではない。私の発明はPDSAだ」と明確に区別したが、日本ではPDCAとして定着した。
+
+**Joseph M. Juran**は『**Quality Control Handbook**』（McGraw-Hill, 1951）でJuran's Trilogy（品質計画・品質管理・品質改善）を提示し、Pareto原理を品質の世界に持ち込んで「**vital few, trivial many**（重要な少数と些細な多数）」を看破した。**Philip B. Crosby**は『**Quality Is Free**』（McGraw-Hill, 1979）で「品質はタダだ。タダではないのは品質を欠いた製品だ」と挑発的に宣言し、**Zero Defects**を掲げた。
+
+これらの思想は1980年代に組織標準・産業標準として結実する。**ISO 9000**シリーズ（初版1987）は品質マネジメントシステムを国際標準化した。**Six Sigma**は**Motorola**で1986年に発明され、**General Electric**でJack Welchの下1995年に全社運動として広まり、3.4 defects per million opportunitiesを目標に据えた。**Watts S. Humphrey**はSEIで**CMM**（後に**CMMI**）を開発し、組織のソフトウェア成熟度を5段階で評価する枠組みを与えた（1989）。
+
+この時代の主語は徹底して**「製品のばらつき」**だった。プロセスは製品品質を達成する手段にすぎなかった。
+
+▶ **次の問い：**「製品の品質は高めた。しかし工場の外、日本では何が起きていたのか」
+
+---
+
+## 第2章：日本という実験場——品質の思想革命と製造知の深化（1950–1990）
+
+**この時代の品質の主語：組織全体の「プロセス」と「文化」**
+
+Demingが1950年に来日したとき、日本の製造業は「安かろう悪かろう」の代名詞だった。30年後、世界は日本車・日本家電に圧倒されることになる。この逆転の中心にあるのは、品質を**「個人の注意力の問題」から「組織のプロセス・文化の問題」へと再定義した思想革命**である。
+
+**石川馨**はQC七つ道具——特性要因図（**Ishikawa diagram**, 別名フィッシュボーン図）・パレート図・ヒストグラム・散布図・チェックシート・グラフ・管理図——を整備し、現場の作業者が自ら品質を分析する道具を与えた。1962年には**QCサークル**が制度化され、品質は管理職や品質部門の専有物ではなくなった。これがTQC（Total Quality Control）からTQM（Total Quality Management）への展開の基層となる。
+
+**大野耐一**は『**トヨタ生産方式——脱規模の経営をめざして**』（ダイヤモンド社, 1978年5月）で、**Just-In-Time（JIT）**・**自働化（autonomation, ニンベンの付いた自動化）**・**かんばん**・**5S**・**7つのムダ**・**なぜなぜ5回**を体系化した。注目すべきは「自働化」の概念である。これは単なる自動機械化ではなく、**異常を検知したら機械が自ら停止する**——すなわち**品質を生産ラインの内側に組み込む**思想であり、欠陥が後工程に流出することを物理的に阻止する。Crosbyの「Zero Defects」が標語であったのに対し、自働化はそれを工学的に実装した。
+
+そしてこの章の核心は、**狩野紀昭、瀬楽信彦、高橋文夫、辻新一**による1984年の革命である。彼らは『品質』Vol.14 No.2（1984年4月15日発行、pp.39–48／J-STAGE版pp.147–156）に「**魅力的品質と当り前品質**」（英訳タイトル "Attractive Quality and Must-Be Quality"）を発表した。狩野らの洞察は、それまで一次元のスカラーだった「品質」を、**「物理的充足度」と「顧客満足度」の二次元の関数**として捉え直したことにある。彼らは品質を5つに分類した——**Must-be Quality（当たり前品質）**、**One-dimensional Quality（一元的品質）**、**Attractive Quality（魅力的品質）**、**Indifferent Quality（無関心品質）**、**Reverse Quality（逆品質）**。
+
+特に重要なのは**品質ライフサイクル仮説**、すなわち「**今日の魅力的品質は明日の当たり前品質になる**」という時間的命題である。これは後にAI時代——2022年に「魅力的品質」だったAIコード補完が2026年には「当たり前品質」化する現象——を予言することになる。狩野モデルは**QFD（品質機能展開）**と統合され、「顧客の声」を製品仕様に変換する具体的な方法論となった。
+
+並行して**竹内弘高・野中郁次郎**は「**The New New Product Development Game**」（Harvard Business Review, January–February 1986, Vol.64 No.1, pp.137–146）で、リレー式（waterfall）に代わる**ラグビー・アプローチ**——機能横断チームが球を持って一斉に走る——を提示した。この論文こそが、後の**Scrum**の名称と思想の起源である。
+
+**James P. Womack, Daniel T. Jones, Daniel Roos**は『**The Machine That Changed the World**』（Rawson Associates / Macmillan, 1990年11月）でMITのIMVP研究の5年・500万ドルの成果をまとめ、研究員**John Krafcik**が造語した「**Lean Production**」を世界に普及させた。1996年の続編『Lean Thinking』では**5原則**（価値・価値の流れ・フロー・プル・完璧の追求）が体系化される。
+
+この時代、品質の主語は**「組織のプロセスと文化」**へと完全に移った。Demingの「94%は経営の責任」という命題が、日本において文字通り組織を作り変える運動として実装されたのである。
+
+▶ **次の問い：**「日本で製造業の品質が極まった1960〜80年代、ソフトウェアという新しい知的生産物は全く別の危機を迎えていた」
+
+---
+
+## 第3章：ソフトウェア危機と構造の発明（1968–1990）
+
+**この時代の品質の主語：コードの「構造」と「設計」**
+
+1968年10月、NATO Science Committeeが**ガルミッシュ会議**を招集した。**Peter Naur**と**Brian Randell**が編んだ報告書は、史上初めて「**software crisis（ソフトウェア危機）**」という言葉を公式に記録した。当時、ハードウェアの性能はムーアの法則に従って爆発的に向上していたが、ソフトウェアは予算超過・遅延・低品質・保守不能の沼に沈んでいた。これは「**ソフトウェア工学（Software Engineering）**」という分野の宣言でもあった。
+
+同年、**Edsger W. Dijkstra**が"**Letters to the editor: Go to statement considered harmful**"（CACM Vol.11 No.3, 1968年3月, pp.147–148）を発表する。Dijkstraは挑発する——"For a number of years I have been familiar with the observation that the quality of programmers is a decreasing function of the density of go to statements in the programs they produce."（プログラマの質は、彼らが書くプログラム中のgoto文の密度の減少関数である）。これは単なるコーディング規約の論争ではなかった。**品質はコードの「構造」に依存する**という、ソフトウェア工学の根本テーゼの宣言である。
+
+Dijkstra・Hoare・Dahlの『**Structured Programming**』（Academic Press, 1972）は構造化プログラミングを体系化し、**Niklaus Wirth**は"Program Development by Stepwise Refinement"（CACM 1971）で段階的詳細化を提示した。**Edward Yourdon**と**Larry Constantine**は"Structured Design"（IBM Systems Journal, 1974）で**結合度（coupling）**と**凝集度（cohesion）**という、今日に至るまで設計品質の中核指標を発明した。
+
+**Winston W. Royce**の"**Managing the Development of Large Software Systems**"（Proceedings of IEEE WESCON, 1970年8月, pp.1–9）は、皮肉にも**ウォーターフォール**の起源論文として記憶される。だが原文を読めば、Royceは単一パスのシーケンシャル開発の**リスクを警告**し、反復的アプローチを推奨していた。"waterfall"という言葉すら使っていない。これは**論文の誤読が業界の標準を作る**という、ソフトウェア工学史における最初の大きな悲劇である。
+
+**Frederick P. Brooks**が『**The Mythical Man-Month**』（Addison-Wesley, 1975）でIBM System/360の開発体験から導いた**Brooks's Law**——"**Adding manpower to a late software project makes it later**"（遅れているプロジェクトに人を追加するとさらに遅れる）——は、コミュニケーションコストがチーム規模の二乗で増えるという冷徹な観察に基づく。
+
+Brooksは1986年のIFIP世界会議で"**No Silver Bullet — Essence and Accident in Software Engineering**"を発表し、IEEE Computer Vol.20 No.4（1987年4月, pp.10–19）に再録した（再録時にタイトルは"Essence and **Accidents**"と複数形に変更）。彼の二分法——**本質的複雑性**は問題自体に内在し、**偶有的複雑性**は道具立てに由来する——は、以後40年のソフトウェア工学の戦いを定義した。「銀の弾丸」は道具で偶有的複雑性を削ることはできても、本質的複雑性を消すことはできない。**この預言は2026年のAIエージェント時代において、いっそう重みを増す**。
+
+▶ **次の問い：**「構造化はコードを整理した。しかし複雑なビジネスロジックを扱うための抽象化の言語はまだなかった」
+
+---
+
+## 第4章：モデルと抽象化——オブジェクト指向・アーキテクチャ・品質特性（1980–2000）
+
+**この時代の品質の主語：「抽象化の質」と「アーキテクチャの整合性」**
+
+オブジェクト指向の起源はノルウェーの**Ole-Johan Dahl**と**Kristen Nygaard**による**Simula 67**にまで遡る。**Alan Kay**はXerox PARCで**Smalltalk**を開発し、後に「私が考えていたのはオブジェクトではなくメッセージング（messaging）だった」と振り返る。**Bjarne Stroustrup**の**C++**（1985）、**James Gosling**の**Java**（1995）が産業に普及し、**継承・カプセル化・多態性**が抽象化の標準語彙となる。
+
+しかし真の革命は別のところにあった。**Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides**——通称**Gang of Four（GoF）**——は『**Design Patterns: Elements of Reusable Object-Oriented Software**』（Addison-Wesley Professional, 1994年10月, ISBN 0-201-63361-2）で23のデザインパターンを編纂した。彼らは建築家**Christopher Alexander**の『A Pattern Language』からパターンの概念を借用し、「**Program to an interface, not an implementation**（実装ではなくインターフェイスに対してプログラムせよ）」という原則を打ち立てた。これは抽象化の品質を担保する具体的な規律となった。
+
+アーキテクチャレベルでは**Philippe Kruchten**が"**Architectural Blueprints — The 4+1 View Model of Software Architecture**"（IEEE Software, 1995年11月）で、**論理ビュー・プロセスビュー・物理ビュー・開発ビュー・シナリオ**という多視点モデルを提示した。**Nick Rozanski & Eóin Woods**は『**Software Systems Architecture**』（Addison-Wesley, 2005）で7ビューポイントと**横断的パースペクティブ**（セキュリティ・性能・進化など）を体系化した。
+
+品質特性モデルの系譜は**Jim McCall**（1977, 11特性）に始まり、**Barry Boehm**（1978）、**Robert Grady**の**FURPS**（HP, 1992）、**ISO/IEC 9126**（1991）、**ISO/IEC 25010**（2011, 8特性）、そして**ISO/IEC 25010:2023**で**Safety（安全性）**を含む9特性へと進化した。これらは品質を「製品仕様」ではなく「**多次元のトレードオフ空間**」として扱う認識論の進化である。
+
+**UML**（OMG, 1997標準化）は**Grady Booch・James Rumbaugh・Ivar Jacobson**——通称Three Amigos——によって統合され、**RUP（Rational Unified Process）**が大規模開発の標準プロセスとなった。
+
+この時代、品質の主語は**「抽象化とアーキテクチャの質」**にあった。良いコードとは整理されたコードではなく、**問題領域を正確にモデル化したコード**である。だが、この語彙が揃っても、現実のプロジェクトは依然として遅延した。要求は変わり続け、顧客は不満だった。
+
+▶ **次の問い：**「抽象化の語彙が揃った1990年代、しかし現実のプロジェクトは依然として遅延し、要求は変わり続け、顧客は不満だった。問題はもう一段深いところにあった」
+
+---
+
+## 第5章：顧客を中心に置く——アジャイル・DDD・リーンの革命（2001–2010）
+
+**この時代の品質の主語：「顧客体験」と「ビジネスドメインとの整合性」**
+
+**2001年2月11日から13日**、ユタ州ワサッチ山地の**The Lodge at Snowbird**スキーリゾートに17人のソフトウェア開発者が集まった。**Kent Beck, Mike Beedle, Arie van Bennekum, Alistair Cockburn, Ward Cunningham, Martin Fowler, James Grenning, Jim Highsmith, Andrew Hunt, Ron Jeffries, Jon Kern, Brian Marick, Robert C. Martin, Steve Mellor, Ken Schwaber, Jeff Sutherland, Dave Thomas**である。彼らがまとめた68語の文書が、**Manifesto for Agile Software Development**（agilemanifesto.org）——アジャイルマニフェスト——だった。**4つの価値**と**12の原則**は、品質の主語を「コードの構造」から「**顧客への動くソフトウェアの継続的提供**」へと根本転換した。
+
+**Kent Beck**の『**Extreme Programming Explained**』（Addison-Wesley, 1999, 第2版2004）は、**Communication / Simplicity / Feedback / Courage**の4つの価値を掲げた。Beckは続けて『**Test-Driven Development: By Example**』（Addison-Wesley, 2002）でテスト駆動開発の**Red–Green–Refactor**サイクルを定式化した。**Dan North**は"Introducing BDD"（Better Software Magazine, 2006）でビヘイビア駆動開発を提唱し、**Given-When-Then**形式と**Cucumber**ツールが要件と実装の橋渡しを担った。
+
+**Scrum**の系譜は竹内・野中（1986）に遡る。**Jeff Sutherland**が1993年に最初のScrumチームを組織し、**Ken Schwaber**がOOPSLA 1995で形式化した。3ロール（PO・SM・Devチーム）、5イベント、3作成物。**David Anderson**の『**Kanban**』（Blue Hole Press, 2010）はWIP制限とフロー管理という別の系譜を提示した。**Mike Cohn**の『**User Stories Applied**』（Addison-Wesley, 2004）は**INVEST基準**と**3 Cs**（Card, Conversation, Confirmation）を整備した。**Martin Fowler**は"Continuous Integration"（martinfowler.com, 2006）で「**統合が痛むなら、頻度を上げて痛みを前倒しせよ**」と説いた。
+
+この時代の知的支柱は**Eric Evans**の『**Domain-Driven Design: Tackling Complexity in the Heart of Software**』（Addison-Wesley, 2003年8月, ISBN 0-321-12521-5, 通称**Blue Book**）である。Evansが提示したのは、ソフトウェアの中心はテクノロジーではなく**ドメイン（事業領域）**であり、品質とは**ドメインモデルとコードの整合性**だ、という主張である。彼は**Ubiquitous Language（ユビキタス言語）**——ドメインエキスパートと開発者が同じ言葉を使う——を中核に据え、**Bounded Context（境界づけられたコンテキスト）**で大規模ドメインを分割した。**Strategic Design**（Context Map / Anti-Corruption Layer / Shared Kernel）と**Tactical Design**（Entity / Value Object / Aggregate / Repository / Domain Event）が両輪である。
+
+**Vaughn Vernon**の『**Implementing Domain-Driven Design**』（Addison-Wesley Professional, 2013年2月, 通称**Red Book**）は実装の具体を補い、特に**Aggregate設計4ルール**——(1) 整合性境界内に真の不変条件をモデル化、(2) 小さな集約を設計、(3) 他の集約はIDで参照、(4) 境界外では結果整合性を使う——を提示した。**Martin Fowler**の"BoundedContext"（martinfowler.com, 2014年1月）はBlue Bookの最重要概念をエッセイとして再提示し、後のマイクロサービスへと結合する。**Sam Newman**の『**Building Microservices**』（O'Reilly, 2015初版/2021第2版）はDDDのBounded Contextをサービス境界として実装する道を示した。
+
+**Eric Ries**の『**The Lean Startup**』（Crown Business, 2011）は**MVP（Minimum Viable Product）**、**Build–Measure–Learn**、**Validated Learning**、**Pivot**を提示し、品質の主語を「仕様への適合」から「**仮説への適合**」へと押し進めた。**Mary & Tom Poppendieck**の『**Lean Software Development**』（Addison-Wesley, 2003）はトヨタ生産方式の7原則をソフトウェアに翻訳した。
+
+### テスト自動化 Phase 1–3
+
+- **Phase 1（〜1979）**：**Glenford Myers**『The Art of Software Testing』（Wiley, 1979）、Dijkstra「**Testing shows the presence, not the absence of bugs**」（テストはバグの存在を示すことはできるが、不在は証明できない）。✅ **コンパイラ構文チェックのみ自動化**　🔴 **属人的手動テストが主流**
+- **Phase 2（1980–99）**：**Kent Beck**が**SUnit**を1994年にSmalltalk向けに作成（Beck本人2007年メールで確認）。1997年OOPSLA行きフライト中にBeckと**Erich Gamma**がペアプロで**JUnit**を実装。**xUnit family**が爆発的に普及。**Hong Zhu et al.**「Software Unit Test Coverage and Adequacy」（ACM Computing Surveys, 1997）。✅ **単体テスト自動化が定着**　🔴 **結合・E2Eは依然手動**
+- **Phase 3（2000年代）**：TDD・BDD・ATDD。**Jason Huggins**（ThoughtWorks Chicago）が**Selenium**を2004年に作成。Testcontainers前身。**Mike Cohn**の**テストピラミッド**（『Succeeding with Agile』2009）。✅ **全階層の理想構造が確立**　🔴 **E2Eのフラキー性とメンテナンスコストが未解決**
+
+▶ **次の問い：**「アジャイルは開発プロセスを変えた。しかし本番環境へのデプロイという壁はそのままだった」
+
+---
+
+## 第6章：壁を壊す——継続的デリバリーとDevOpsの誕生（2009–2015）
+
+**この時代の品質の主語：「デプロイパイプライン全体のフロー」**
+
+2009年6月22–24日、サンノゼで開催されたO'Reilly Velocity Conference。**John Allspaw**（当時Yahoo!/Flickr）と**Paul Hammond**（Flickr）が登壇し、"**10+ Deploys Per Day: Dev and Ops Cooperation at Flickr**"を講演した。当時、本番環境への変更は月1回・四半期1回が普通であり、Devは「変更を出したい」、Opsは「安定させたい」という対立構造が常態化していた。彼らは**フィーチャーフラグ・ダークローンチ・共有ダッシュボード**で「**Dev対Ops**」を「**Dev with Ops**」に変えた。
+
+同2009年、ベルギー人エンジニア**Patrick Debois**がガン（Ghent）で第一回**DevOpsDays**を開催し、Twitterでハッシュタグ#DevOpsが定着した。**DevOps**という運動の誕生である。
+
+**Jez Humble & David Farley**の『**Continuous Delivery**』（Addison-Wesley, 2010）はこの実践を体系化した。中核概念は**Deployment Pipeline**であり、原則は「**もし苦痛なら、頻度を上げて痛みを前倒しせよ**」。**Blue-Green Deployment**、**Canary Release**、**Trunk-Based Development**といった具体的な手法が標準化された。
+
+**Gene Kim, Kevin Behr, George Spafford**の『**The Phoenix Project**』（IT Revolution, 2013）は小説形式で**The Three Ways**——**フロー・フィードバック・継続的学習**——を伝え、続いて『**The DevOps Handbook**』（Kim, Humble, Debois, Willis, IT Revolution, 2016）が技術的詳細を補完した。
+
+決定打は**Nicole Forsgren, Jez Humble, Gene Kim**の『**Accelerate: The Science of Lean Software and DevOps**』（IT Revolution Press, 2018年3月, Shingo Publication Award 2019受賞）だった。彼らは**DORAの4指標**——**Deployment Frequency（デプロイ頻度）、Lead Time for Changes（変更のリードタイム）、Change Failure Rate（変更失敗率）、Time to Restore Service（復旧時間）**——を統計的に検証し、革命的な発見を報告した：「**速度と安定性はトレードオフではなく、相互強化的である**」。Eliteパフォーマーは両方を同時に達成していた。
+
+### 運用自動化 Phase 1–3
+
+- **Phase 1（〜1999）**：**Nagios**（1999, Ethan Galstad）。✅ **アラート自動化のみ**　🔴 **対応・修復はすべて人間**
+- **Phase 2（2000年代）**：**CFEngine**（Mark Burgess, 1993, **Promise Theory**）、**Puppet**（Luke Kanies, 2005）、**Chef**（Adam Jacob, 2009）。✅ **単一サーバ設定の宣言的管理**　🔴 **設定ドリフト・オーケストレーションは手動**
+- **Phase 3（2010年代前半）**：**Ansible**（Michael DeHaan, 2012）、**Terraform**（HashiCorp, 2014）、**Immutable Infrastructure**（Chad Fowler, 2013）、Blue-Green。✅ **インフラ全自動プロビジョニング**　🔴 **コンテナ時代のダイナミックスケーリング未対応**
+
+▶ **次の問い：**「壁は壊れた。しかし今度はサービスが数十・数百に分裂し始めた。新しい複雑性の時代が来た」
+
+---
+
+## 第7章：クラウドネイティブの品質——分散・イベント駆動・コンテナ（2010–2020）
+
+**この時代の品質の主語：「分散システム全体の整合性と観測可能性」**
+
+DevOpsが壁を壊した瞬間、システムは新たな形で分裂し始めた。クラウドの普及、コンテナ技術、マイクロサービス——これらは新しい複雑性のレイヤーを生んだ。
+
+理論的基盤は古い。**Leslie Lamport**は"**Time, Clocks, and the Ordering of Events in a Distributed System**"（CACM Vol.21 No.7, 1978年7月, pp.558–565）で論理時計を提示し、後の**Paxos**（1998）でコンセンサスを定式化した。**L Peter Deutsch**と**James Gosling**は"**Fallacies of Distributed Computing**"（1994/1997）で、ネットワークが信頼できる・遅延ゼロ・帯域無限・トポロジが変わらない、といった**8つの誤った前提**を列挙した。**Eric Brewer**は**PODC 2000**のキーノートで**CAP定理**を提示し、**Seth Gilbert & Nancy Lynch**（ACM SIGACT News Vol.33 Issue 2, 2002年6月, pp.51–59）が形式証明を与えた。Brewer自身が"CAP Twelve Years Later"（IEEE Computer 2012）で再考した。
+
+データ処理では**Jeffrey Dean & Sanjay Ghemawat**の"**MapReduce: Simplified Data Processing on Large Clusters**"（OSDI'04, December 2004）が分散バッチ処理の標準を作り、**John Hughes**「Why Functional Programming Matters」（1989）の**不変性**思想がそれを支えた。**Matei Zaharia**らの**Spark**（2010）が後継となる。
+
+### イベント駆動アーキテクチャとPub/Sub
+
+イベント駆動の起源は**Kenneth P. Birman & Thomas A. Joseph**"**Exploiting Virtual Synchrony in Distributed Systems**"（Proceedings of the 11th ACM SOSP '87, ACM SIGOPS Operating Systems Review Vol.21 Issue 5, November 1987, pp.123–138）に遡る。**Patrick Th. Eugster, Pascal Felber, Rachid Guerraoui, Anne-Marie Kermarrec**の"**The Many Faces of Publish/Subscribe**"（ACM Computing Surveys Vol.35 No.2, June 2003, pp.114–131）が分類学を整備した。
+
+**Gregor Hohpe & Bobby Woolf**の『**Enterprise Integration Patterns**』（Addison-Wesley Professional, 2003年10月）は65のメッセージングパターンを体系化した。**Martin Fowler**は"**What do you mean by 'Event-Driven'?**"（martinfowler.com, 2017）で**Event Notification / Event-Carried State Transfer / Event Sourcing / CQRS**の4分類を提示し、彼の"Event Sourcing"（martinfowler.com, 2005）と**Greg Young**の"CQRS Documents"（2010）が理論的基盤を与えた。
+
+そして決定打は**Apache Kafka**である。**Jay Kreps, Neha Narkhede, Jun Rao**"**Kafka: a Distributed Messaging System for Log Processing**"（**NetDB'11**, 6th International Workshop on Networking Meets Databases, June 12 2011, Athens）が原典である（VLDBではなくNetDBが正解）。Krepsは続いて"**The Log: What every software engineer should know about real-time data's unifying abstraction**"（LinkedIn Engineering Blog, 2013年12月16日）で衝撃的に宣言した——"**A log is perhaps the simplest possible storage abstraction**"（ログはおそらく最も単純なストレージ抽象である）。**CloudEvents**（CNCF, 2018年Sandbox入り→2024年Graduated）がイベント形式を標準化した。
+
+長期トランザクション処理では**Hector Garcia-Molina & Kenneth Salem**"**Sagas**"（ACM SIGMOD 1987）の補償トランザクション理論が、**Choreography vs Orchestration**のトレードオフを伴って分散システムの基本パターンとして再発見された。DDDの**Event Sourcing**とKafkaの結合は、Vernon・Newmanらの著作で標準化される。
+
+### コンテナとオーケストレーション
+
+仮想化は**VMware ESX**（2001）、**Xen**（2003）、**KVM**（2007）と進化し、**NIST SP 800-145**（Mell & Grance, 2011）が**クラウドの5特性・3サービスモデル**（IaaS/PaaS/SaaS）を定義した。**Solomon Hykes**は**PyCon US 2013**（2013年3月15日）の5分のライトニングトークで**Docker**を披露し、これが世界を変えた。**Open Container Initiative（OCI）**が2015年に発足し、コンテナ規格を標準化した。
+
+**Joe Beda, Brendan Burns, Craig McLuckie**ら（Google）は内部システムBorg/Omega（EuroSys 2015で公表）の系譜から**Kubernetes**を開発し、**v1.0**を**OSCON 2015年7月21日**にリリース、同日CNCFへの寄贈を発表した（CNCFの正式設立は2015年12月17日）。中核思想は**Desired State**と**Reconciliation Loop**——望ましい状態を宣言すれば、システムが現実をそこへ収束させる。
+
+**James Lewis & Martin Fowler**"**Microservices: a definition of this new architectural term**"（martinfowler.com, 2014年3月25日）がマイクロサービスを正式に定義した——"an approach to developing a single application as a suite of small services, each running in its own process and communicating with lightweight mechanisms"。**Sam Newman**『Building Microservices』が実装の規範となり、**逆コンウェイ作戦（Inverse Conway Maneuver）**——望むアーキテクチャに合うようにチーム構造を先に設計する——が運動論となった。
+
+### SREとObservability
+
+**Betsy Beyer, Chris Jones, Jennifer Petoff, Niall Richard Murphy**編『**Site Reliability Engineering: How Google Runs Production Systems**』（O'Reilly, 2016年4月）はGoogleの実践を公開した。**SLI / SLO / SLA・エラーバジェット・Toil・blameless postmortem（責めないポストモーテム）**——SREは「ソフトウェアエンジニアに運用を任せたら何が起きるか」の答えだった。
+
+**Peter Bourgon**の"Three Pillars of Observability"（**Logs / Metrics / Traces**, 2017）と**Charity Majors**の主張——「**known-unknownsはモニタリングで足りる、unknown-unknownsにはobservabilityが要る**」——がパラダイムを変えた。**Benjamin Sigelman et al.**"Dapper, a Large-Scale Distributed Systems Tracing Infrastructure"（Google Technical Report, 2010）→**Zipkin**→**Jaeger**→**OpenTelemetry**（CNCF, 2021 GA）と分散トレーシングが進化した。
+
+**Netflix**は**Chaos Monkey**（2010）と**Simian Army**（2011）でカオスエンジニアリングを実践し、**principlesofchaos.org**（2017）が原則を公表した。**Alexis Richardson**（Weaveworks）の**GitOps**（2017）は「**Operations by Pull Request**」を掲げ、**Argo CD**と**Flux**（2022 CNCF Graduated）が標準実装となった。**Matthew Skelton & Manuel Pais**『**Team Topologies**』（IT Revolution, 2019）と**Backstage**（Spotify→CNCF, 2020）が**Platform Engineering**を体系化した。**SBOM**（NTIA, 2021, SPDX/CycloneDX）、**SLSA v1.0**（OpenSSF, 2023）、**Sigstore**がサプライチェーンセキュリティを確立した。
+
+### テスト自動化 Phase 4
+**Koen Claessen & John Hughes**"QuickCheck"（ICFP 2000）の**Property-Based Testing**、**David MacIver**の**Hypothesis**（2013）、**Jeff Offutt & Roland Untch**の**Mutation Testing**（2001）、**Beth Skurrie/Pact**による**Contract Testing**（2013）、**Richard North**の**Testcontainers**（2015）。**Jenkins**（2011 fork）と**Travis CI**（2011）で**PRごとに全自動実行**が標準化。✅ **多層テスト・カオス・コントラクトもCIで自動化**　🔴 **テスト生成・メンテナンスは手作業、E2Eフラキー未解決**
+
+### 運用自動化 Phase 4
+Kubernetes・**Helm**（2015）・**HPA/VPA**、**Prometheus**（SoundCloud 2012, CNCF 2016, Graduated 2018）+**Grafana**、**PagerDuty・OpsGenie**によるアラートルーティング、GitOpsによる**Git Pushで本番反映**、**SLO/エラーバジェット自動計算**。✅ **インフラ・デプロイ・監視・ロールバックの大部分が自動**　🔴 **インシデント根本原因分析と修復アクションは人間**
+
+▶ **次の問い：**「システムの複雑性は可視化できた。しかし『何をもって良い開発チームとするか』の定量化はまだ曖昧なままだった」
+
+---
+
+## 第8章：測れるものしか改善できない——開発生産性の科学化（2015–2022）
+
+**この時代の品質の主語：「チームとプロセスのアウトカム」の定量化**
+
+**Peter Drucker**は1954年に**MBO（Management by Objectives）**を提示し、**Andrew Grove**は『**High Output Management**』（Intel, 1983）で**OKR**の原型を整備した。**John Doerr**の『**Measure What Matters**』（Portfolio, 2018）はGoogle・Intelの実例を公開し、宣言した——"**Ideas are easy. Execution is everything.**"（アイデアは簡単。実行こそすべて）。
+
+開発生産性の科学化の決定的瞬間は前章で触れた**Forsgren, Humble, Kim『Accelerate』**（2018）である。**Four Keys**（DF / LT / CFR / TTR）はEliteからLowまでの**4階層**を統計的に区別し、「速度と安定性の相互強化」を実証した。これは「速いか安全か」のジレンマに終止符を打つ宣言だった。
+
+しかし単一指標の罠は古くからの問題でもある。**Goodhartの法則**——「指標が目標になると、それは良い指標ではなくなる」——との戦いは、Juranの**vital few**思想とも接続する。**Forsgren, Margaret-Anne Storey, Chandra Maddila, Thomas Zimmermann, Brian Houck, Jenna Butler**は"**The SPACE of Developer Productivity: There's more to it than you think**"（**ACM Queue Vol.19 Issue 1, 2021年3月**）で5次元——**Satisfaction（満足度）/ Performance（成果）/ Activity（活動）/ Communication（協働）/ Efficiency（効率）**——を提示し、"**No single metric can capture developer productivity**"と明言した。
+
+**Abi Noda, Storey, Forsgren, Michaela Greiler**は"**DevEx: What Actually Drives Productivity**"（**ACM Queue Vol.21 Issue 2, 2023年5月**）で**Feedback loops / Cognitive load / Flow state**の3次元を打ち出し、品質の主語を「アウトプット」から「**開発者の日々の摩擦**」へとシフトさせた。
+
+そして**DORA 2024**レポートは挑戦的発見を報告した——「**AI tooling adoption correlates with worsened software delivery performance**（AIツール採用は開発パフォーマンスの悪化と相関）」。25%のAI採用増加が、スループット1.5%減・安定性7.2%減と関連した。**Laura Tacho（DX）**もこの逆説を指摘した。仮説：AIは個人生産性を上げる一方で、バッチサイズを大きくし、レビュー負荷を上げ、システムレベルのフローを阻害する可能性がある。
+
+▶ **次の問い：**「測定の語彙が整ったとき、2022年11月ChatGPTが公開された。測る対象としての『開発者』そのものが変容しつつある」
+
+---
+
+## 第9章：AIエージェント時代の品質——プロンプトからハーネスへ（2022–2026）
+
+**この時代の品質の主語：「AI×人間の協働設計」——モデルの外側すべて**
+
+### 9-1. LLM時代の幕開けと狩野モデルの再来
+
+**GitHub Copilot**は**2021年6月29日**に技術プレビュー、**2022年6月21日**に**GA**された。GitHub CEOの**Thomas Dohmke**は宣言した——"Today, I am thrilled to announce that we are making GitHub Copilot generally available to individual developers. Your AI pair programmer is here."
+
+**Sida Peng, Eirini Kalliamvakou, Peter Cihon, Mert Demirer**"**The Impact of AI on Developer Productivity: Evidence from GitHub Copilot**"（arXiv:2302.06590, 2023年2月13日）は95名のフリーランス開発者を対象としたランダム化対照試験で、Copilot処置群が対照群より**55.8%高速**にHTTPサーバ実装を完了したことを示した（mean 71.17 vs 160.89分、p=0.0017）。
+
+ここで狩野モデル（1984）が再来する。**2022年に「魅力的品質」だったAIコード補完機能は、2026年には「当たり前品質」に変わった**。**Stack Overflow Developer Survey 2025**（2025年7月29日）は84%が使用または使用予定と報告した。**a16z State of Consumer AI 2025**は"AI is now table stakes"と表現し、**McKinsey State of AI 2025**は9割の企業が定期利用と報告した。
+
+しかし**DORA 2024レポート**の逆説——AI採用と配信パフォーマンスの負の相関——は、AIが個人効率を上げる一方で、システム全体の品質を保証しない可能性を示唆した。狩野の品質ライフサイクル仮説——**「魅力的品質はやがて当たり前品質になる」**——が、4年というかつてない速度で実現した。
+
+### 9-2. プロンプトエンジニアリング期（2020–2022）——職人芸から設計へ
+
+**Tom B. Brown et al.**"**Language Models are Few-Shot Learners**"（GPT-3, arXiv:2005.14165, NeurIPS 2020）が**few-shot prompting**を発見した。175Bパラメタのモデルは、わずかな例示で新タスクに適応した。
+
+**Jason Wei et al.**"**Chain-of-Thought Prompting Elicits Reasoning in Large Language Models**"（arXiv:2201.11903, 2022年1月28日, NeurIPS 2022）は**CoT**でPaLMのGSM8K正答率が**18%→58%**に跳ね上がることを示した。**Takeshi Kojima et al.**"**Large Language Models are Zero-Shot Reasoners**"（arXiv:2205.11916, NeurIPS 2022）は、ただ「**Let's think step by step**」と付けるだけで、InstructGPT 175BのMultiArith正答率が**17.7%→78.7%**、GSM8Kが10.4%→40.7%に上昇することを示した。
+
+**Shunyu Yao et al.**"**ReAct: Synergizing Reasoning and Acting in Language Models**"（arXiv:2210.03629, ICLR 2023）は**Thought→Action→Observation**ループを提示し、エージェント設計の基本ループとなった。**Tree of Thoughts**（Yao et al. NeurIPS 2023）と**Graph of Thoughts**（Besta et al. AAAI 2024）が探索構造を拡張した。
+
+**この期の限界**：ステートレス、複数ステップ未対応、コンテキスト長の壁。プロンプトは「職人芸」だった。
+
+### 9-3. コンテキストエンジニアリング期（2023–2024）——RAMとしてのコンテキスト
+
+**Patrick Lewis et al.**"**Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks**"（arXiv:2005.11401, NeurIPS 2020）が**RAG**を提示し、2023年に**LangChain・LlamaIndex・Pinecone**で実用化された。
+
+コンテキスト長は**Claude 100k**（2023年5月）→**200k**（2023年11月）→**Gemini 1.5 Pro 1M**（2024年2月）と急伸した。**Andrej Karpathy**はLLMをOSに喩え、**「コンテキスト=RAM」**の比喩を広めた。
+
+**Tobi Lütke**（Shopify CEO）は**2025年6月19日**にX投稿で宣言した——"I really like the term 'context engineering' over prompt engineering. It describes the core skill better: the art of providing all the context for the task to be plausibly solvable by the LLM."（プロンプトエンジニアリングよりコンテキストエンジニアリングという言葉の方がはるかに好きだ。それはコアスキルをよく表している。LLMがそのタスクをそれらしく解けるように、すべてのコンテキストを提供する技芸である）。
+
+**Karpathy**は**2025年6月25日**に賛同——"+1 for 'context engineering' over 'prompt engineering' … context engineering is the delicate art and science of filling the context window with just the right information for the next step."（コンテキストエンジニアリングは、次のステップに必要な情報だけでコンテキストウィンドウを埋める繊細な技芸であり科学である）。
+
+実践面では**AGENTS.md**がOpenAI・Google・Cursor・Sourcegraphらによって**2025年8月**にオープン標準化され、**CLAUDE.md**（Anthropic, 2025年2月）、**.cursorrules**が並存した。
+
+**この期の限界**：ループ・サブエージェント協調・ツール安全性・エラーリカバリの設計語彙が欠如していた。
+
+### 9-4. ハーネスエンジニアリング期（2025–2026）——Agent = Model + Harness
+
+主語の決定的シフトは2026年初頭に起きた。3つの記事が同じ言葉を使い、同じ等式に到達した。
+
+**Mitchell Hashimoto**（HashiCorp/Ghostty創業者）は"**My AI Adoption Journey**"（mitchellh.com, **2026年2月5日**）で、AI懐疑派から日常ユーザーへの転向を6段階で記述した。彼の核心命題は——"**To find value, you must use an agent.**"——そして「**engineering the harness（ハーネスを設計する）**」という規律である。失敗を**信号（signal）**として扱い、**AGENTS.md**に永続化する。"Context switching is very expensive… it was my job as a human to be in control of when I interrupt the agent, not the other way around."
+
+**Ryan Lopopolo**（OpenAI Frontier team）は"**Harness engineering: leveraging Codex in an agent-first world**"（openai.com, **2026年2月11日**頃）で、衝撃的な実験を報告した——**3〜7名のチームが5ヶ月で、手書きコード0行・約100万行・約1,500 PRの本番ベータ製品を、すべてCodexエージェントが書いた**。彼の核心引用：
+
+- "**Humans steer. Agents execute.**"（人間が舵を取り、エージェントが実行する）
+- "**Our most difficult challenges now center on designing environments, feedback loops, and control systems.**"（最も難しい課題は今、環境・フィードバックループ・制御システムの設計に集中している）
+- "**When the agent struggles, we treat it as a signal: identify what is missing — tools, guardrails, documentation — and feed it back into the repository.**"
+- "give Codex a map, not a 1,000-page instruction manual."（Codexには地図を与えよ、1,000頁のマニュアルではなく）
+
+彼らは失敗（巨大な単一AGENTS.md）から、3層のハーネス——**Context layer**（〜100行のAGENTS.mdは目次として機能）、**Architectural constraints**（カスタムリンター・構造的テストでTypes→Config→Repo→Service→Runtime→UIの層を機械的に強制）、**Garbage collection**（ドキュメント腐敗・制約ドリフトを修正する周期エージェント）——に到達した。
+
+**Martin Fowler & Birgitta Böckeler**"**Harness engineering for coding agent users**"（martinfowler.com, **2026年4月2日**）が理論を統合した。彼らは**Agent = Model + Harness**を定式化し、ハーネスを2軸×3カテゴリで分類した：
+
+- 制御の方向：**Guides**（feedforward control, 事前抑制）vs **Sensors**（feedback control, 事後検出と自己修正）
+- 実行モード：**Computational**（決定論的・CPU・テストやリンター）vs **Inferential**（GPU・LLM-as-judge・AIレビュー）
+- 対象：**Maintainability** / **Architecture fitness** / **Behaviour**
+
+理論基盤は**W. Ross Ashby**の"**Law of Requisite Variety**"（要求多様性の法則）——制御系は被制御系と同程度の多様性を持たねばならない——である。彼らの中心概念は**The Steering Loop**——"The human's job in this is to **steer** the agent by iterating on the harness."（人間の仕事は、ハーネスを反復改善することでエージェントを舵取りすることだ）。
+
+直接引用：
+- "To harness a coding agent we both anticipate unwanted outputs and try to prevent them, and we put sensors in place to allow the agent to self-correct."
+- "The term harness has emerged as a shorthand to mean everything in an AI agent except the model itself - **Agent = Model + Harness**."
+
+**Vivek Trivedy**（LangChain）"**The Anatomy of an Agent Harness**"（blog.langchain.com, **2026年3月10日**）は同じ等式に独立に到達した——"**TLDR: Agent = Model + Harness… If you're not the model, you're the harness.**"。彼は実証を示した：先行記事で**ハーネスのみを変更**し、コーディングエージェントを**Terminal Bench 2.0で52.8%（Top 30外）から66.5%（Top 5）**へ引き上げた。「Opus 4.6 in Claude Code scores far below Opus 4.6 in other harnesses」——**同じモデルでも、ハーネスの質で性能は別物**になる。
+
+### 9-5. エコシステム——プロトコル・サンドボックス・ガードレール・Evals
+
+**MCP（Model Context Protocol）**——Anthropicが**2024年11月25日**に公開（David Soria Parra & Justin Spahr-Summers作）。Host/Client/Server構造、Tools/Resources/Prompts/Samplingの4プリミティブ。「**USB-C for AI tools**」と呼ばれた。**OpenAIのSam Altman**が**2025年3月26日**にX投稿でサポートを表明し、業界標準が確定した。数千のMCPサーバが登場した。
+
+**A2A（Agent2Agent Protocol）**——Googleが**2025年4月9日**にGoogle Cloud Next '25で発表、HTTP/JSON-RPC/SSE上のエージェント間通信プロトコル。50以上のパートナー。**2025年6月23日**にLinux Foundationへ寄贈された。
+
+**サンドボックス実行**：E2B、Daytona、Firecracker microVM。**Guardrails**：NeMo Guardrails（NVIDIA, 2023）、Lakera Guard、Llama Guard 3——**入力/出力/ツール**の3層防御。**Memory**：**MemGPT**（Charles Packer et al. arXiv:2310.08560, 2023）→**Letta**——**episodic / semantic / procedural**メモリ。**Observability**：LangSmith・LangFuse・Helicone・OpenAI Traces。
+
+### 9-6. AIエージェントの競争とSWE-bench
+
+**Cognition Labs**は**2024年3月12日**に**Devin**を「世界初の完全自律AIソフトウェアエンジニア」として発表し、**SWE-benchで13.86%**（当時SOTAの1.96%対比）を達成した。
+
+**Anthropic Claude Code**——**2025年2月24日**にClaude 3.7 Sonnetと共にCLI研究プレビュー公開、**2025年5月22日**にClaude 4と共にGA、subagent並列・Hooks・CLAUDE.mdが特徴。**2025年11月にARR 10億ドル達成**——CPO Mike Krieger曰く"reached $1 billion in run-rate revenue in only 6 months"。
+
+**OpenAI Codex CLI**は**2025年4月16日**にApache 2.0でOSSリリース。**GitHub Copilot Workspace**も並走。
+
+**SWE-bench**——**Carlos E. Jimenez et al.**"SWE-bench: Can Language Models Resolve Real-World GitHub Issues?"（arXiv:2310.06770, ICLR 2024）。OpenAIが**SWE-bench Verified**を**2024年8月13日**に500サンプル subset として公開。**Scale AI**が**SWE-bench Pro**（arXiv:2509.16941, 2025年9月）を1,865問・41リポジトリで発表。そして**2026年2月23日**、OpenAIは"Why SWE-bench Verified no longer measures frontier coding capabilities"を発表し、**Verifiedの27.6%サブセットを再監査して59.4%に欠陥テストを発見**——フロンティアベンチマーク飽和を公式認定した。これは2024–25年のスコア競争の終わりを告げた。
+
+### 9-7. Spec-Driven Developmentと「IDEなき開発」
+
+**GitHub Spec Kit**——**Den Delimarsky**（GitHub Principal Product Engineer）が**2025年9月2日**にOSS公開。`/specify→/plan→/tasks→/implement`の4コマンドと`constitution.md`が中核。"We treat coding agents like search engines when we should be treating them more like literal-minded pair programmers."
+
+**AWS Kiro**——**2025年7月14–15日**プレビュー（AWS Summit New York）、**2025年11月17日**GA。**EARS構文**による`requirements.md` / `design.md` / `tasks.md`の3点セット。GAではproperty-based testing・checkpointing・Kiro CLI。プレビューから25万人以上の開発者が利用。
+
+**Sean Grove**（OpenAI）はAI Engineer World's Fair 2025の"**The New Code**"で挑発した——"Code is 10-20% of the value. The other 80-90% is in **structured communication**."（コードは価値の10-20%にすぎない。残り80-90%は構造化されたコミュニケーションにある）"**Whoever writes the spec is now the programmer.**"（仕様を書く者が今やプログラマである）。
+
+**Claude Code**のCLI-first設計は哲学的だった——「人間用IDEを模倣せず、APIとして動く」。**Anthropic**"**How we built our multi-agent research system**"（2025年6月13日）は**Orchestrator-Worker**パターンを公開し、Claude Opus 4をリード、Sonnet 4をサブエージェントとした構成が単一エージェント比**+90.2%**の性能を出した一方で、**~15倍のトークン消費**と引き換えになることを認めた。
+
+### 9-8. テスト・運用自動化 Phase 5
+
+**テスト自動化Phase 5**：**Nadia Alshahwan et al.**"**Automated Unit Test Improvement using Large Language Models at Meta**"（arXiv:2402.09171, FSE 2024）は**Meta TestGen-LLM**をInstagram Reels/Storiesに適用——**75%が正常ビルド・57%が安定パス・25%がカバレッジ向上・73%が本番採用**。彼らは「**Assured Offline LLMSE**」フィルタ設計で**LLMハルシネーションを測定可能性で除去**した。**Diffblue Cover**（Oxford大スピンオフ, 2016）はJava単体テスト自動生成を商用化した。**Microsoft Playwright**（2020）はSelenium後継としてauto-wait・CDP直接駆動を提供。**Testim・mabl**は**self-healing test**でセレクタ変更を自動修復。
+
+✅ **テスト生成・修復・実行・報告の大部分が自動化**　🔴 **テストオラクル問題（Weyuker 1982）の再来——「LLMシステムの期待出力を誰が定義するか」**
+
+**運用自動化Phase 5**：**AIOps**（Gartner 2016–17命名）——Dynatrace Davis AI・Datadog Watchdog・New Relic AI。**Kubernetes HPA/VPA/KEDA**（CNCF Graduated 2024）、Knative。**GitHub Copilot for Azure**（2024年11月Public Preview）・**Amazon Q Developer**。
+
+✅ **検知・診断・一部修復が自律化**　🔴 **ヒューマン・イン・ザ・ループ設計とAI誤判断時のセーフティネットが未成熟**
+
+### 9-9. Brooks's Lawの現代的再解釈
+
+**Wes McKinney**「The Mythical Agent-Month」（2025）——"**Coding agents tackle accidental complexity powerfully, but essential complexity remains.**"（コーディングエージェントは偶有的複雑性に強いが、本質的複雑性は依然残る）。**Desmond Lawrence**（2025）——"**Agentic coding doesn't overturn The Mythical Man-Month. It operationalises it.**"（エージェント駆動コーディングはBrooksを覆さない。それを運用化する）。**Murat Demirbas**（2026年1月）——「マルチエージェントシステムはBrooks's Lawを逃れない。状態空間爆発の壁により速く到達するだけだ」。
+
+**Brooks 1986の預言「No Silver Bullet」は、AI時代においてより一層真実となった**。エージェントは偶有的複雑性を爆発的に削減するが、本質的複雑性——ドメイン理解・要求の曖昧さ・トレードオフの判断——を消すことはできない。問題はむしろ、**AIがコード生産速度を上げた結果、本質的複雑性のボトルネックがより鋭く露出した**ことにある。仕様の質、ドメインモデルの整合性、判断の妥当性——これらは依然として人間（あるいは人間が設計したハーネス）の領分である。
+
+▶ **次の問い：**「Agent = Model + Harnessという等式が確立されたとき、『ハーネスの品質』とは何か。次の100年の問いがここに始まる」
+
+---
+
+## エピローグ：品質の本質——100年を貫く3つの不変の原理と次の問い
+
+100年を駆け抜けた。Shewhartの管理図メモ（1924）からFowler & Böckelerのハーネスエンジニアリング（2026）まで。表面の語彙は激変した——管理図、QCサークル、構造化、デザインパターン、Bounded Context、Deployment Pipeline、SLO、SPACE、ハーネス。だが、**3つの原理は不変であり続けた**。
+
+**第1原理：品質は事後ではなく事前に作り込まれる**。Shewhartの管理図は不良品を出荷後に検出するのではなく、工程内で予防する道具だった。Crosbyの予防コスト（1979）、トヨタ生産方式の自働化、Beck のTDD、Meta TestGen-LLMの「Assured Offline LLMSE」フィルタ、そしてFowler & Böckelerのハーネスにおける**Guides（feedforward）とSensors（feedback）**——いずれも「**シフトレフト**」の異なる表現である。品質は最後の検査ゲートではなく、**設計と環境に埋め込まれる**。
+
+**第2原理：品質は個人の問題ではなくシステムの問題である**。Demingの「**94%は経営の責任**」、石川の「思想革命」、**Conway's law**（1968, 「組織はそのコミュニケーション構造を反映したシステムを生む」）、SREの**blameless postmortem**、そしてLopopoloの「**failureはsignal、リポジトリにフィードバックする**」——責任を個人に帰属させても何も改善しない。**品質を生むのも壊すのも、人を取り巻くシステムの設計**である。AI時代において、このシステムとは「ハーネスの外側」全体を指す。
+
+**第3原理：品質はフィードバックループの速度と質で決まる**。Shewhart Cycle（PDSA）、XPの短いイテレーション、Build-Measure-Learn、DORA Four Keys、エラーバジェット、ReActループ、ハーネスのSteering Loop——**全てはフィードバックループ**である。Brooksは「銀の弾丸はない」と言ったが、彼自身が示した一つの確かな漸近線は、フィードバックループを速く、正確に、安価にすることだった。各時代はループの**サイズ**（個人→チーム→組織→システム→AI協働）と**周期**（年→月→日→分→秒）を縮め続けてきた。
+
+これら3原理に照らせば、「**品質の主語**」の100年の遷移は明瞭に見える：
+
+| 時代 | 品質の主語 |
+|---|---|
+| 1924–1960 | 製品のばらつき |
+| 1950–1990 | 組織のプロセスと文化 |
+| 1968–1990 | コードの構造 |
+| 1980–2000 | 抽象化とアーキテクチャ |
+| 2001–2010 | 顧客体験とドメイン整合性 |
+| 2009–2015 | デプロイパイプライン全体のフロー |
+| 2010–2020 | 分散システム全体の整合性と観測可能性 |
+| 2015–2022 | チームとプロセスのアウトカム定量化 |
+| 2022–2026 | AI×人間の協働設計（ハーネス） |
+
+**次の100年の問い**は3つに集約される。
+
+第一に、**ハーネスの品質をどう保証するか**。ハーネスはコード・ドキュメント・テスト・リンター・ガードレール・プロンプト・ツール・サンドボックスの集合体である。これ自体が成果物であり、進化し、腐敗する。**ハーネスのテストは何か。ハーネスの設計レビューはどう行うか。ハーネスのバージョニングと回帰テストは**——次の10年の中心問題である。
+
+第二に、**仕様自体の品質を誰が・どう定義するか**。Sean Groveの「Whoever writes the spec is now the programmer」が真であるなら、**仕様の品質特性は何か**。Brooksの本質的複雑性は、コードからspec/intentへと退避しただけなのか。EARS構文・constitution.md・property-based assertionは出発点だが、答えではない。
+
+第三に、**人間の意図をAIを経由して社会に届ける新しい品質保証のパラダイムとは何か**。Shewhartは製造ラインで管理図を発明した。Demingは組織システムを再設計した。アジャイルは顧客と開発者を繋いだ。次の品質保証は、**意図 → 仕様 → ハーネス → エージェント → コード → 製品 → ユーザー → 社会**という新しい連鎖の、どの結節点で、どんな形で行われるのか。
+
+**狩野紀昭の品質ライフサイクル仮説**——魅力的品質はやがて当たり前品質になる——は、AI時代において史上最速で進行している。今日「ハーネスエンジニアリング」と呼ばれる技芸は、5年後には「当たり前品質」になっているだろう。そのとき、また新しい主語が現れる。それが何かを予測することはできない。だが、3つの不変の原理——**事前の作り込み・システムとしての捉え方・フィードバックループの設計**——がそこでも成り立つことだけは、100年の歴史が請け合っている。
+
+---
+
+## 章別主要原典文献リスト
+
+### プロローグ
+- Shewhart, W. A. (1931). *Economic Control of Quality of Manufactured Product*. D. Van Nostrand.
+- Juran, J. M. (1951). *Quality Control Handbook*. McGraw-Hill.
+- Crosby, P. B. (1979). *Quality Is Free*. McGraw-Hill.
+- Kano, N., Seraku, N., Takahashi, F., & Tsuji, S. (1984)「魅力的品質と当り前品質」『品質』Vol.14 No.2, pp.39–48.
+- Brooks, F. P. (1987). "No Silver Bullet: Essence and Accidents of Software Engineering." *IEEE Computer* 20(4): 10–19.
+- ISO/IEC 25010:2011 / 25010:2023.
+
+### 第1章
+- Shewhart, W. A. (1931). *Economic Control of Quality of Manufactured Product*. D. Van Nostrand.
+- Deming, W. E. (1986). *Out of the Crisis*. MIT Center for Advanced Engineering Study.
+- Juran, J. M. (1951). *Quality Control Handbook*. McGraw-Hill.
+- Crosby, P. B. (1979). *Quality Is Free*. McGraw-Hill.
+- ISO 9000 series (1987–).
+- Humphrey, W. S. (1989). *Managing the Software Process*. Addison-Wesley.
+
+### 第2章
+- 大野耐一 (1978)『トヨタ生産方式——脱規模の経営をめざして』ダイヤモンド社.
+- Kano, N., Seraku, N., Takahashi, F., & Tsuji, S. (1984)「魅力的品質と当り前品質」『品質』14(2): 39–48.
+- Takeuchi, H., & Nonaka, I. (1986). "The New New Product Development Game." *Harvard Business Review* 64(1): 137–146.
+- Womack, J. P., Jones, D. T., & Roos, D. (1990). *The Machine That Changed the World*. Rawson Associates / Macmillan.
+- Womack, J. P., & Jones, D. T. (1996). *Lean Thinking*. Simon & Schuster.
+
+### 第3章
+- Naur, P., & Randell, B. (eds.) (1969). *Software Engineering: Report of a conference sponsored by the NATO Science Committee, Garmisch, October 1968*.
+- Dijkstra, E. W. (1968). "Go To Statement Considered Harmful." *CACM* 11(3): 147–148.
+- Wirth, N. (1971). "Program Development by Stepwise Refinement." *CACM* 14(4): 221–227.
+- Dijkstra, E. W., Hoare, C. A. R., & Dahl, O.-J. (1972). *Structured Programming*. Academic Press.
+- Stevens, W. P., Myers, G. J., & Constantine, L. L. (1974). "Structured Design." *IBM Systems Journal* 13(2): 115–139.
+- Royce, W. W. (1970). "Managing the Development of Large Software Systems." *Proceedings of IEEE WESCON*, pp.1–9.
+- Brooks, F. P. (1975). *The Mythical Man-Month*. Addison-Wesley.
+- Brooks, F. P. (1987). "No Silver Bullet." *IEEE Computer* 20(4): 10–19.
+
+### 第4章
+- Gamma, E., Helm, R., Johnson, R., & Vlissides, J. (1994). *Design Patterns: Elements of Reusable Object-Oriented Software*. Addison-Wesley.
+- Kruchten, P. (1995). "Architectural Blueprints — The 4+1 View Model." *IEEE Software* 12(6): 42–50.
+- Rozanski, N., & Woods, E. (2005). *Software Systems Architecture*. Addison-Wesley.
+- McCall, J., Richards, P., & Walters, G. (1977). *Factors in Software Quality*. RADC.
+- ISO/IEC 9126 (1991), ISO/IEC 25010 (2011, 2023).
+
+### 第5章
+- Beck, K. et al. (2001). *Manifesto for Agile Software Development*. agilemanifesto.org.
+- Beck, K. (1999/2004). *Extreme Programming Explained*. Addison-Wesley.
+- Beck, K. (2002). *Test-Driven Development: By Example*. Addison-Wesley.
+- North, D. (2006). "Introducing BDD." *Better Software Magazine*.
+- Schwaber, K. (1995). "SCRUM Development Process." OOPSLA Workshop.
+- Anderson, D. J. (2010). *Kanban*. Blue Hole Press.
+- Cohn, M. (2004). *User Stories Applied*. Addison-Wesley.
+- Fowler, M. (2006). "Continuous Integration." martinfowler.com.
+- Evans, E. (2003). *Domain-Driven Design*. Addison-Wesley.
+- Vernon, V. (2013). *Implementing Domain-Driven Design*. Addison-Wesley.
+- Newman, S. (2015). *Building Microservices*. O'Reilly.
+- Ries, E. (2011). *The Lean Startup*. Crown Business.
+- Poppendieck, M. & T. (2003). *Lean Software Development*. Addison-Wesley.
+- Myers, G. J. (1979). *The Art of Software Testing*. Wiley.
+- Zhu, H., Hall, P., & May, J. (1997). "Software Unit Test Coverage and Adequacy." *ACM Computing Surveys* 29(4).
+
+### 第6章
+- Allspaw, J., & Hammond, P. (2009). "10+ Deploys Per Day: Dev and Ops Cooperation at Flickr." Velocity Conference.
+- Humble, J., & Farley, D. (2010). *Continuous Delivery*. Addison-Wesley.
+- Kim, G., Behr, K., & Spafford, G. (2013). *The Phoenix Project*. IT Revolution.
+- Kim, G., Humble, J., Debois, P., & Willis, J. (2016). *The DevOps Handbook*. IT Revolution.
+- Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate*. IT Revolution Press.
+
+### 第7章
+- Lamport, L. (1978). "Time, Clocks, and the Ordering of Events in a Distributed System." *CACM* 21(7): 558–565.
+- Brewer, E. (2000). "Towards Robust Distributed Systems." PODC keynote.
+- Gilbert, S., & Lynch, N. (2002). "Brewer's Conjecture and the Feasibility of Consistent, Available, Partition-Tolerant Web Services." *ACM SIGACT News* 33(2): 51–59.
+- Dean, J., & Ghemawat, S. (2004). "MapReduce: Simplified Data Processing on Large Clusters." *OSDI '04*: 137–150.
+- Birman, K. P., & Joseph, T. A. (1987). "Exploiting Virtual Synchrony in Distributed Systems." *Proc. 11th ACM SOSP*, pp.123–138.
+- Eugster, P. T., Felber, P. A., Guerraoui, R., & Kermarrec, A.-M. (2003). "The Many Faces of Publish/Subscribe." *ACM Computing Surveys* 35(2): 114–131.
+- Hohpe, G., & Woolf, B. (2003). *Enterprise Integration Patterns*. Addison-Wesley.
+- Fowler, M. (2005, 2017). "Event Sourcing" / "What do you mean by 'Event-Driven'?" martinfowler.com.
+- Young, G. (2010). *CQRS Documents*.
+- Kreps, J., Narkhede, N., & Rao, J. (2011). "Kafka: a Distributed Messaging System for Log Processing." *NetDB '11*.
+- Kreps, J. (2013). "The Log." LinkedIn Engineering Blog.
+- Garcia-Molina, H., & Salem, K. (1987). "Sagas." *ACM SIGMOD*: 249–259.
+- Mell, P., & Grance, T. (2011). *NIST SP 800-145: The NIST Definition of Cloud Computing*.
+- Lewis, J., & Fowler, M. (2014). "Microservices." martinfowler.com.
+- Beyer, B., Jones, C., Petoff, J., & Murphy, N. R. (eds.) (2016). *Site Reliability Engineering*. O'Reilly.
+- Sigelman, B. et al. (2010). "Dapper, a Large-Scale Distributed Systems Tracing Infrastructure." Google Technical Report.
+- Skelton, M., & Pais, M. (2019). *Team Topologies*. IT Revolution.
+
+### 第8章
+- Doerr, J. (2018). *Measure What Matters*. Portfolio.
+- Forsgren, N., Humble, J., & Kim, G. (2018). *Accelerate*. IT Revolution Press.
+- Forsgren, N., Storey, M.-A., Maddila, C., Zimmermann, T., Houck, B., & Butler, J. (2021). "The SPACE of Developer Productivity." *ACM Queue* 19(1).
+- Noda, A., Storey, M.-A., Forsgren, N., & Greiler, M. (2023). "DevEx: What Actually Drives Productivity." *ACM Queue* 21(2).
+- DORA (2024). *Accelerate State of DevOps Report 2024*. dora.dev.
+
+### 第9章
+- Brown, T. B. et al. (2020). "Language Models are Few-Shot Learners." arXiv:2005.14165 / NeurIPS 2020.
+- Lewis, P. et al. (2020). "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks." arXiv:2005.11401 / NeurIPS 2020.
+- Wei, J. et al. (2022). "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models." arXiv:2201.11903 / NeurIPS 2022.
+- Kojima, T. et al. (2022). "Large Language Models are Zero-Shot Reasoners." arXiv:2205.11916 / NeurIPS 2022.
+- Yao, S. et al. (2023). "ReAct." arXiv:2210.03629 / ICLR 2023.
+- Peng, S., Kalliamvakou, E., Cihon, P., & Demirer, M. (2023). "The Impact of AI on Developer Productivity." arXiv:2302.06590.
+- Jimenez, C. E. et al. (2024). "SWE-bench." arXiv:2310.06770 / ICLR 2024.
+- Alshahwan, N. et al. (2024). "Automated Unit Test Improvement using LLMs at Meta." arXiv:2402.09171 / FSE 2024.
+- Anthropic (2024年11月25日). "Introducing the Model Context Protocol." anthropic.com.
+- Google (2025年4月9日). "Announcing the Agent2Agent Protocol (A2A)."
+- Anthropic (2025年6月13日). "How we built our multi-agent research system." anthropic.com.
+- Lütke, T. (2025年6月19日). X post on context engineering.
+- Karpathy, A. (2025年6月25日). X post on context engineering.
+- Delimarsky, D. (2025年9月2日). "Spec-driven development with AI." github.blog.
+- Hashimoto, M. (2026年2月5日). "My AI Adoption Journey." mitchellh.com.
+- Lopopolo, R. (2026年2月). "Harness engineering: leveraging Codex in an agent-first world." openai.com.
+- OpenAI (2026年2月23日). "Why SWE-bench Verified no longer measures frontier coding capabilities." openai.com.
+- Trivedy, V. (2026年3月10日). "The Anatomy of an Agent Harness." blog.langchain.com.
+- Fowler, M., & Böckeler, B. (2026年4月2日). "Harness engineering for coding agent users." martinfowler.com.
+
+### エピローグ
+- Conway, M. E. (1968). "How Do Committees Invent?" *Datamation* 14(4): 28–31.
+- Ashby, W. R. (1956). *An Introduction to Cybernetics* (Law of Requisite Variety).
+- Weyuker, E. J. (1982). "On Testing Non-Testable Programs." *The Computer Journal* 25(4): 465–470.
